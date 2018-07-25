@@ -1,6 +1,6 @@
 <?php
 
-namespace Sijad\ReCaptcha\Listener;
+namespace Joom\ReCaptcha\Listener;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Bus\Dispatcher as BusDispatcher;
@@ -8,7 +8,7 @@ use Flarum\Event\ConfigureValidator;
 use Flarum\Core\Validator\UserValidator;
 use Flarum\Core\Command\RegisterUser;
 use Flarum\Settings\SettingsRepositoryInterface;
-use Sijad\ReCaptcha\RecaptchaValidator;
+use Joom\ReCaptcha\RecaptchaValidator;
 use ReCaptcha\ReCaptcha;
 
 class AddValidatorRule {
@@ -31,7 +31,7 @@ class AddValidatorRule {
     }
 
     public function addRule(ConfigureValidator $event) {
-        $secret = $this->settings->get('sijad-recaptcha.secret');
+        $secret = $this->settings->get('joom-recaptcha.secret');
         if (! empty($secret)) {
             if ($event->type instanceof RecaptchaValidator) {
                 $event->validator->addExtension(

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sijad\ReCaptcha\Listener;
+namespace Joom\ReCaptcha\Listener;
 
 use DirectoryIterator;
 use Flarum\Event\ConfigureClientView;
@@ -11,8 +11,8 @@ class AddClientAssets
 {
     public function subscribe(Dispatcher $events)
     {
-        $events->listen(ConfigureClientView::class, [$this, 'addAssets']);
-        $events->listen(ConfigureLocales::class, [$this, 'addLocales']);
+        //$events->listen(ConfigureClientView::class, [$this, 'addAssets']);
+        //$events->listen(ConfigureLocales::class, [$this, 'addLocales']);
     }
 
     public function addAssets(ConfigureClientView $event)
@@ -22,14 +22,14 @@ class AddClientAssets
                 __DIR__.'/../../js/forum/dist/extension.js',
                 __DIR__.'/../../less/forum/extension.less',
             ]);
-            $event->addBootstrapper('sijad/recaptcha/main');
+            $event->addBootstrapper('joom/recaptcha/main');
         }
 
         if ($event->isAdmin()) {
             $event->addAssets([
                 __DIR__.'/../../js/admin/dist/extension.js',
             ]);
-            $event->addBootstrapper('sijad/recaptcha/main');
+            $event->addBootstrapper('joom/recaptcha/main');
         }
     }
 

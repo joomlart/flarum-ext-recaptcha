@@ -1,6 +1,6 @@
 'use strict';
 
-System.register('sijad/recaptcha/components/ReCaptchaSettingsModal', ['flarum/app', 'flarum/components/SettingsModal'], function (_export, _context) {
+System.register('joom/recaptcha/components/ReCaptchaSettingsModal', ['flarum/app', 'flarum/components/SettingsModal'], function (_export, _context) {
   "use strict";
 
   var app, SettingsModal, ReCaptchaSettingsModal;
@@ -27,7 +27,7 @@ System.register('sijad/recaptcha/components/ReCaptchaSettingsModal', ['flarum/ap
         }, {
           key: 'title',
           value: function title() {
-            return app.translator.trans('sijad-recaptcha.admin.recaptcha_settings.title');
+            return app.translator.trans('joom-recaptcha.admin.recaptcha_settings.title');
           }
         }, {
           key: 'form',
@@ -38,18 +38,18 @@ System.register('sijad/recaptcha/components/ReCaptchaSettingsModal', ['flarum/ap
               m(
                 'label',
                 null,
-                app.translator.trans('sijad-recaptcha.admin.recaptcha_settings.sitekey_label')
+                app.translator.trans('joom-recaptcha.admin.recaptcha_settings.sitekey_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('sijad-recaptcha.sitekey') })
+              m('input', { className: 'FormControl', bidi: this.setting('joom-recaptcha.sitekey') })
             ), m(
               'div',
               { className: 'Form-group' },
               m(
                 'label',
                 null,
-                app.translator.trans('sijad-recaptcha.admin.recaptcha_settings.secret_label')
+                app.translator.trans('joom-recaptcha.admin.recaptcha_settings.secret_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('sijad-recaptcha.secret') })
+              m('input', { className: 'FormControl', bidi: this.setting('joom-recaptcha.secret') })
             )];
           }
         }]);
@@ -62,20 +62,22 @@ System.register('sijad/recaptcha/components/ReCaptchaSettingsModal', ['flarum/ap
 });;
 'use strict';
 
-System.register('sijad/recaptcha/main', ['flarum/app', 'sijad/recaptcha/components/ReCaptchaSettingsModal'], function (_export, _context) {
+System.register('joom/recaptcha/main', ['flarum/app', 'joom/recaptcha/components/ReCaptchaSettingsModal'], function (_export, _context) {
   "use strict";
 
   var app, ReCaptchaSettingsModal;
   return {
     setters: [function (_flarumApp) {
       app = _flarumApp.default;
-    }, function (_sijadRecaptchaComponentsReCaptchaSettingsModal) {
-      ReCaptchaSettingsModal = _sijadRecaptchaComponentsReCaptchaSettingsModal.default;
+    }, function (_joomRecaptchaComponentsReCaptchaSettingsModal) {
+      ReCaptchaSettingsModal = _joomRecaptchaComponentsReCaptchaSettingsModal.default;
     }],
     execute: function () {
 
-      app.initializers.add('sijad-recaptcha', function () {
-        app.extensionSettings['sijad-recaptcha'] = function () {
+      console.log('init recaptcha setting');
+      app.initializers.add('joom-recaptcha', function () {
+        console.log('init recaptcha setting done');
+        app.extensionSettings['joom-recaptcha'] = function () {
           return app.modal.show(new ReCaptchaSettingsModal());
         };
       });

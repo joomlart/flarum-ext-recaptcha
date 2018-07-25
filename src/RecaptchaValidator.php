@@ -1,6 +1,6 @@
 <?php
 
-namespace Sijad\ReCaptcha;
+namespace Joom\ReCaptcha;
 
 use Flarum\Core\Validator\AbstractValidator;
 

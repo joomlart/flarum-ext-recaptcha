@@ -9,7 +9,7 @@ reCAPTCHA for Flarum.
 1. Run follow command via SSH while you're in Flarum root folder:
 
     ```bash
-    composer require sijad/flarum-ext-recaptcha
+    composer require joom/flarum-ext-recaptcha
     ```
 
 2. Copy your site and secret key from [reCAPTCHA admin panel](https://www.google.com/recaptcha/admin).

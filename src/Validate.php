@@ -1,10 +1,10 @@
 <?php
 
-namespace Sijad\ReCaptcha;
+namespace Joom\ReCaptcha;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Flarum\Core\Command\RegisterUser;
-use Sijad\ReCaptcha\Listener;
+use Joom\ReCaptcha\Listener;
 
 class Validate
 {
